@@ -40,7 +40,7 @@ API.on(API.CHAT, callback);
    if (data.message == '!meh') {
      API.moderateDeleteChat(data.chatID);
    }
-   if (msg.indexOf("fan me" || "fan4fan" || "fan 4 fan" || "fan for fan") > -1) {
+   if (msg.indexOf('fan me' || 'fanme') > -1) {
      API.moderateDeleteChat(data.chatID);
      API.sendChat("@"+username + " Please don't ask for fans.");
    }

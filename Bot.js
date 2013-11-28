@@ -45,7 +45,7 @@ API.on(API.CHAT, callback);
  
  
  }
-
+HypixelBot();
 // -------------------
 // Created by xmannj2
 // -------------------

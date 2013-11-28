@@ -38,11 +38,18 @@ API.on(API.CHAT, callback);
    }
  } 
  
- // Prevent users from asking for woots
+ // Prevent users from asking for fans
  // -----------------------------------------
-
- 
- 
+ API.on(API.CHAT, callback);
+ function callback(data) {
+   var username = data.from;
+   var id = data.fromID;
+   var msg = data.message;
+   if (msg.indexOf("fan me") > -1) {
+     API.moderateDeleteChat(data.chatID);
+     API.sendChat("@"+username + " Please don't ask for fans.");
+   }
+ }
  
  }
 HypixelBot();

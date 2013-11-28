@@ -1,0 +1,6 @@
+function HypixelBot(){
+bot = {
+    skip:
+	
+ }
+

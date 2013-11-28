@@ -10,3 +10,19 @@ bot = {
 	API.on(API.CHAT, bot.lock, this);
 	API.on(API.CHAT, bot.unlock, this);
 	API.on(API.CHAT, bot.meh, this);
+	
+	API.on(API.CHAT, callback);
+ function callback(data) {
+   if (data.message == '!lock') {
+     API.moderateDeleteChat(data.chatID);
+   }
+   if (data.message == '!unlock') {
+     API.moderateDeleteChat(data.chatID);
+   }
+   if (data.message == '!skip') {
+     API.moderateDeleteChat(data.chatID);
+   }
+   if (data.message == '!meh') {
+     API.moderateDeleteChat(data.chatID);
+   }
+ } 

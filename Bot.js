@@ -40,15 +40,26 @@ API.on(API.CHAT, callback);
    if (data.message == '!meh') {
      API.moderateDeleteChat(data.chatID);
    }
-   if (msg.indexOf('fan me' || 'fanme') > -1) {
+
+
+// Prevent users from asking for fans
+// -----------------------------------------
+
+   if (msg.indexOf('fan me') > -1) {
+     API.moderateDeleteChat(data.chatID);
+     API.sendChat("@"+username + " Please don't ask for fans.");
+   }
+   if (msg.indexOf('fan 4 fan') > -1) {
+     API.moderateDeleteChat(data.chatID);
+     API.sendChat("@"+username + " Please don't ask for fans.");
+   }
+   if (msg.indexOf('fan for fan') > -1) {
      API.moderateDeleteChat(data.chatID);
      API.sendChat("@"+username + " Please don't ask for fans.");
    }
  } 
  
- // Prevent users from asking for fans
- // -----------------------------------------
-
+ 
  }
 HypixelBot();
 // -------------------

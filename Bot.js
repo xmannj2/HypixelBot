@@ -38,6 +38,7 @@ function HypixelBot() {
         var username = data.from;
         var id = data.fromID;
         var msg = data.message;
+        var lockskip = API.getTimeRemaining() >= 1;
 
         if (data.message == '!lock') {
             API.moderateDeleteChat(data.chatID);
@@ -51,11 +52,9 @@ function HypixelBot() {
         if (data.message == '!meh') {
             API.moderateDeleteChat(data.chatID);
         }
-        if (API.getTimeRemaining() <= 1) {
-            return false;
-        } else {
-            API.moderateForceSkip()
-        }
+		if (lockskip == false) {
+		    API.moderateForceSkip();
+		}
 
 
 // Prevent users from asking for fans

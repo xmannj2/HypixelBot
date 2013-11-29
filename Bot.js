@@ -30,7 +30,6 @@ function HypixelBot() {
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
-    API.on(bot.forceskip);
 
     API.sendChat("Currently running Hypixel Bot v." + bot.version);
 

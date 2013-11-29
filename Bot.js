@@ -15,6 +15,10 @@ function HypixelBot() {
         meh: function (data) {
             if (data.message == '!meh' && API.hasPermission(data.fromID, API.ROLE.BOUNCER)) API.sendChat("Reserve Mehs for songs that are extremely overplayed, absolutely awful, or troll songs.")
         },
+        forceskip: function (data) {
+            var lockskip = API.getTimeRemaining() >= 1;
+            if (lockskip == false) API.moderateForceSkip();
+        },
 
 
     }
@@ -26,6 +30,7 @@ function HypixelBot() {
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
+    API.on(API.CHAT, bot.forceskip, this);
 
     API.sendChat("Currently running Hypixel Bot v." + bot.version);
 
@@ -38,7 +43,6 @@ function HypixelBot() {
         var username = data.from;
         var id = data.fromID;
         var msg = data.message;
-        var lockskip = API.getTimeRemaining() >= 1;
 
         if (data.message == '!lock') {
             API.moderateDeleteChat(data.chatID);
@@ -52,9 +56,6 @@ function HypixelBot() {
         if (data.message == '!meh') {
             API.moderateDeleteChat(data.chatID);
         }
-		if (lockskip == false) {
-		    API.moderateForceSkip();
-		}
 
 
 // Prevent users from asking for fans
@@ -76,8 +77,6 @@ function HypixelBot() {
 
 // Swap command
 // ---------------
-
-
 
 }
 HypixelBot();

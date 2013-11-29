@@ -17,7 +17,7 @@ function HypixelBot() {
         },
         forceskip: function (data) {
             var lockskip = API.getTimeRemaining() >= 1;
-            if (lockskip == false) API.moderateForceSkip()
+            if (lockskip == false) API.moderateForceSkip();
         },
 
 

@@ -25,13 +25,13 @@ function HypixelBot() {
 
 // Allow the commands to be used
 // -----------------------------------------
-
+    var mseconds = API.getTimeRemaining();
+	var seconds = mseconds * 1000;
     API.on(API.CHAT, bot.skip, this);
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
-    API.on("all", bot.forceskip);
-    API.on(API.CHAT, bot.forceskip, this);
+    setTimeout(API.on(API.DJ_ADVANCE, bot.forceskip),seconds);
 
 
     API.sendChat("Currently running Hypixel Bot v." + bot.version);

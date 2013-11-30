@@ -21,7 +21,7 @@ function HypixelBot() {
         },
         timeout: function (data) {
             var mseconds = API.getTimeRemaining();
-            var seconds = mseconds * 1000;
+            var seconds = mseconds *1000;
             var advance = API.moderateForceSkip();
 		    setTimeout(advance, seconds);
 		},

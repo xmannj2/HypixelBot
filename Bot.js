@@ -27,11 +27,12 @@ function HypixelBot() {
 // -----------------------------------------
     var mseconds = API.getTimeRemaining();
 	var seconds = mseconds * 1000;
+	var advance = API.on(API.DJ_ADVANCE, bot.forceskip)
     API.on(API.CHAT, bot.skip, this);
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
-    setTimeout(API.on(API.DJ_ADVANCE, bot.forceskip),seconds);
+    setTimeout(advance, seconds);
 
 
     API.sendChat("Currently running Hypixel Bot v." + bot.version);

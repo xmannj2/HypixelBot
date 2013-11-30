@@ -26,8 +26,8 @@ function HypixelBot() {
 // Allow the commands to be used
 // -----------------------------------------
     var mseconds = API.getTimeRemaining();
-	var seconds = mseconds * 1000;
-	var advance = API.on(API.DJ_ADVANCE, bot.forceskip)
+    var seconds = mseconds * 1000;
+    var advance = API.on(API.DJ_ADVANCE, bot.forceskip);
     API.on(API.CHAT, bot.skip, this);
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);

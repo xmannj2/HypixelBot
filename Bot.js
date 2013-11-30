@@ -19,20 +19,24 @@ function HypixelBot() {
             var lockskip = API.getTimeRemaining() >= 1;
             if (lockskip == false) API.moderateForceSkip();
         },
+        timeout: function (data) {
+            var mseconds = API.getTimeRemaining();
+            var seconds = mseconds * 1000;
+            var advance = API.moderateForceSkip();
+		    setTimeout(advance, seconds);
+		},
 
 
     }
 
 // Allow the commands to be used
 // -----------------------------------------
-    var mseconds = API.getTimeRemaining();
-    var seconds = mseconds * 1000;
-    var advance = API.on(API.DJ_ADVANCE, bot.forceskip);
     API.on(API.CHAT, bot.skip, this);
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
-    setTimeout(advance, seconds);
+	API.on(API.DJ_ADVANCE, bot.timeout)
+    
 
 
     API.sendChat("Currently running Hypixel Bot v." + bot.version);

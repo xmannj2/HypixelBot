@@ -1,6 +1,6 @@
 function HypixelBot() {
     bot = {
-        version: 1.1,
+        version: 1.2,
 // Commands
 // -----------------------------------------
         skip: function (data) {
@@ -57,17 +57,18 @@ function HypixelBot() {
         if (data.message == '!meh') {
             API.moderateDeleteChat(data.chatID);
         }
-        
-    API.on(API.DJ_ADVANCE, timeout)	
-		function timeout(data) {
-            var mseconds = API.getTimeRemaining() * 1000;
-			var bar;
-                function adv(){
-                    API.moderateForceSkip();
-                    } 
-		            setTimeout(adv,mseconds);
-    }
 
+        API.on(API.DJ_ADVANCE, timeout);
+
+        function timeout(data) {
+            var mseconds = API.getTimeRemaining() * 1000;
+            var bar;
+
+            function adv() {
+                API.moderateForceSkip();
+            }
+            setTimeout(adv, mseconds);
+        }
 
 
 // Prevent users from asking for fans

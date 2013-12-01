@@ -62,12 +62,12 @@ function HypixelBot() {
 
         function timeout(data) {
             var mseconds = API.getTimeRemaining() * 1000;
-            var bar;
+            var ms = mseconds - 1000;
 
             function adv() {
                 API.moderateForceSkip();
             }
-            setTimeout(adv, mseconds);
+            setTimeout(adv, ms);
         }
 
 

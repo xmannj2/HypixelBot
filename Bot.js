@@ -19,11 +19,6 @@ function HypixelBot() {
             var lockskip = API.getTimeRemaining() >= 1;
             if (lockskip == false) API.moderateForceSkip();
         },
-        timeout: function (data) {
-            var mseconds = API.getTimeRemaining() * 1000;
-            var advance = API.moderateForceSkip();
-		    setTimeout(function(){advance}, mseconds);
-		},
 
 
     }
@@ -34,7 +29,7 @@ function HypixelBot() {
     API.on(API.CHAT, bot.lock, this);
     API.on(API.CHAT, bot.unlock, this);
     API.on(API.CHAT, bot.meh, this);
-	API.on(API.DJ_ADVANCE, bot.timeout)
+
     
 
 
@@ -62,6 +57,17 @@ function HypixelBot() {
         if (data.message == '!meh') {
             API.moderateDeleteChat(data.chatID);
         }
+        
+    API.on(API.DJ_ADVANCE, timeout)	
+		function timeout(data) {
+            var mseconds = API.getTimeRemaining() * 1000;
+			var bar;
+                function adv(){
+                    API.moderateForceSkip();
+                    } 
+		            setTimeout(adv,mseconds);
+    }
+
 
 
 // Prevent users from asking for fans

@@ -20,10 +20,9 @@ function HypixelBot() {
             if (lockskip == false) API.moderateForceSkip();
         },
         timeout: function (data) {
-            var mseconds = API.getTimeRemaining();
-            var seconds = mseconds *1000;
+            var mseconds = API.getTimeRemaining() * 1000;
             var advance = API.moderateForceSkip();
-		    setTimeout(advance, seconds);
+		    setTimeout(function(){advance}, mseconds);
 		},
 
 
